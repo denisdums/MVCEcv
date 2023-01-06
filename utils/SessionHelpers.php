@@ -4,6 +4,8 @@
 namespace utils;
 
 
+use models\classes\User;
+
 class SessionHelpers
 {
     public function __construct()
@@ -18,18 +20,18 @@ class SessionHelpers
 
     static function login(mixed $equipe): void
     {
-        $_SESSION['LOGIN'] = $equipe;
+        $_SESSION['USER'] = $equipe;
     }
 
     static function logout(): void
     {
-        unset($_SESSION['LOGIN']);
+        unset($_SESSION['USER']);
     }
 
     static function getConnected(): mixed
     {
         if (SessionHelpers::isLogin()) {
-            return $_SESSION['LOGIN'];
+            return $_SESSION['USER'];
         } else {
             return array();
         }
@@ -37,6 +39,11 @@ class SessionHelpers
 
     static function isLogin(): bool
     {
-        return isset($_SESSION['LOGIN']);
+        return isset($_SESSION['USER']);
+    }
+
+    static function getConnectedUser(): ?User
+    {
+        return SessionHelpers::isLogin() ? $_SESSION['USER'] : null;
     }
 }

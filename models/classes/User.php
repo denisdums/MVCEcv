@@ -3,6 +3,8 @@
 namespace models\classes;
 
 
+use stdClass;
+
 class User
 {
     public int $id;
@@ -10,12 +12,12 @@ class User
     public string $password;
     public string $name;
 
-    public function __construct(int $id, string $email, string $password, string $name)
+    public function __construct(stdClass $rawUser)
     {
-        $this->setId($id);
-        $this->setEmail($email);
-        $this->setPassword($password);
-        $this->setName($name);
+        $this->setId($rawUser->id);
+        $this->setEmail($rawUser->email);
+        $this->setPassword($rawUser->password);
+        $this->setName($rawUser->name);
     }
 
     /**
