@@ -28,12 +28,8 @@ class UserWebController extends WebController
             $this->redirect('/sign-in');
         }
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $name = $_POST['name'];
         $authModel = new AuthModel();
-
-        $this->redirect($authModel->createUser($email, $password, $name) ? '/login' : '/sign-in');
+        $this->redirect($authModel->createUser($_POST['email'], $_POST['password'], $_POST['name']) ? '/login' : '/sign-in');
     }
 
     public function loginUser()
@@ -45,10 +41,8 @@ class UserWebController extends WebController
             $this->redirect('/login');
         }
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
         $authModel = new AuthModel();
-        $this->redirect($authModel->loginUser($email, $password)? '/back' : '/login');
+        $this->redirect($authModel->loginUser($_POST['email'], $_POST['password']) ? '/back' : '/login');
     }
 
     public function logout()

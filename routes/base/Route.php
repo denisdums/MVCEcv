@@ -4,8 +4,8 @@ namespace routes\base;
 
 use Exception;
 use ReflectionFunction;
-use utils\CliUtils;
 use ReflectionMethod;
+use utils\CliUtils;
 
 class Route
 {

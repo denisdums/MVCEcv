@@ -2,30 +2,63 @@
 
 namespace routes;
 
+use controllers\BackActorWebController;
+use controllers\BackFilmWebController;
+use controllers\BackImageWebController;
 use controllers\BackWebController;
 use controllers\SampleWebController;
 use controllers\UserWebController;
+use middlewares\AuthMiddleware;
+use routes\base\Middleware;
 use routes\base\Route;
-use utils\SessionHelpers;
 
 class Web
 {
     function __construct()
     {
-        Route::Add('/', [(new SampleWebController()), 'home']);
+        $userController = new UserWebController();
+        $authMiddleware = new AuthMiddleware();
 
         /**
-         * Connected Middleware
+         * Default Routes
          */
-        if (SessionHelpers::isLogin()){
-            Route::Add('/back', [(new BackWebController()), 'index']);
-            Route::Add('/logout', [(new UserWebController()), 'logout']);
-        }else {
-            Route::Add('/sign-in', [(new UserWebController()), 'signIn']);
-            Route::Add('/register-user', [(new UserWebController()), 'register']);
-            Route::Add('/login', [(new UserWebController()), 'login']);
-            Route::Add('/login-user', [(new UserWebController()), 'loginUser']);
-        }
+        Route::Add('/', [(new SampleWebController()), 'home']);
+        Route::Add('/ui', [(new SampleWebController()), 'ui']);
+
+        Middleware::Add([$authMiddleware, 'isLogin'], function() use ($userController) {
+            $backController = new BackWebController();
+            Route::Add('/back', [$backController, 'index']);
+            Route::Add('/logout', [$userController, 'logout']);
+
+            // Film Crud
+            $filmController = new BackFilmWebController();
+            Route::Add('/back/film/edit', [$filmController, 'edit']);
+            Route::Add('/back/film/all', [$filmController, 'all']);
+            Route::Add('/back/film/save', [$filmController, 'save']);
+            Route::Add('/back/film/delete', [$filmController, 'delete']);
+
+            // Actor Crud
+            $actorController = new BackActorWebController();
+            Route::Add('/back/actor/edit', [$actorController, 'edit']);
+            Route::Add('/back/actor/all', [$actorController, 'all']);
+            Route::Add('/back/actor/save', [$actorController, 'save']);
+            Route::Add('/back/actor/delete', [$actorController, 'delete']);
+
+            // Image Crud
+            $imageController = new BackImageWebController();
+            Route::Add('/back/image/edit', [$imageController, 'edit']);
+            Route::Add('/back/image/all', [$imageController, 'all']);
+            Route::Add('/back/image/save', [$imageController, 'save']);
+            Route::Add('/back/image/delete', [$imageController, 'delete']);
+            Route::Add('/ajax/back/image/add', [$imageController, 'saveAjax']);
+        });
+
+        Middleware::Add([$authMiddleware, 'isNotLogin'], function() use ($userController) {
+            Route::Add('/sign-in', [$userController, 'signIn']);
+            Route::Add('/register-user', [$userController, 'register']);
+            Route::Add('/login', [$userController, 'login']);
+            Route::Add('/login-user', [$userController, 'loginUser']);
+        });
     }
 }
 

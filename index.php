@@ -5,6 +5,12 @@ use utils\SessionHelpers;
 
 include("autoload.php");
 
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__);
+}
+if (!defined('DOMAIN')) {
+    define('DOMAIN', 'http://mvcecv.docker');
+}
 /*
  * Permet l'utilisation du serveur PHP interne et l'affichage des contenus static.
  */
