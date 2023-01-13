@@ -50,9 +50,9 @@ class SQL implements IDatabase
     /**
      * Permet la récupération d'un enregistrement en base de données
      * @param String $id
-     * @return \stdClass|null
+     * @return \stdClass|bool
      */
-    public function getOne(string $id): \stdClass|null
+    public function getOne(string $id): \stdClass|bool
     {
         $stmt = SQL::getPdo()->prepare("SELECT * FROM {$this->tableName} WHERE {$this->primaryKey} = ? LIMIT 1");
         $stmt->execute([$id]);

@@ -1,9 +1,2 @@
-<?php
-/**
- * @var $user User
- */
-?>
-
-<h1>
-    Salut <?= $user->name ?>
-</h1>
+<h1>Bienvenue dans le back-office de votre site</h1>
+<p>L'édition se fera dans les sous-sections sur la gauche de votre écran</p>

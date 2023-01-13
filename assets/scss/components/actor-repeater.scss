@@ -1,0 +1,17 @@
+.actor-repeater {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &-line {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}

@@ -3,7 +3,6 @@
 namespace models;
 
 use models\base\SQL;
-use models\classes\User;
 
 class AuthModel extends SQL
 {

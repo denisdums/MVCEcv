@@ -12,8 +12,8 @@ class SampleWebController extends WebController
         return Template::render("views/global/home.php", array("date" => date("d-m-Y à H:i")));
     }
 
-    function exemple($parametre = 'Valeur par défaut'): string
+    function ui(): string
     {
-        return "Voilà votre paramètre : $parametre";
+        return Template::render("views/global/ui.php");
     }
 }
