@@ -3,6 +3,7 @@
 namespace models\classes;
 
 
+use DateTime;
 use models\ImageModel;
 use stdClass;
 
@@ -71,7 +72,8 @@ class Film
      */
     public function getDate(): string
     {
-        return $this->date;
+        $date = new DateTime($this->date);
+        return $date->format("d/m/Y");
     }
 
     /**
@@ -149,9 +151,9 @@ class Film
     }
 
     /**
-     * @return array
+     * @return ?Gallery
      */
-    public function getGallery(): array
+    public function getGallery(): ?Gallery
     {
         return $this->gallery;
     }

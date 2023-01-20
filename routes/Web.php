@@ -6,7 +6,7 @@ use controllers\BackActorWebController;
 use controllers\BackFilmWebController;
 use controllers\BackImageWebController;
 use controllers\BackWebController;
-use controllers\SampleWebController;
+use controllers\PagesWebController;
 use controllers\UserWebController;
 use middlewares\AuthMiddleware;
 use routes\base\Middleware;
@@ -22,8 +22,10 @@ class Web
         /**
          * Default Routes
          */
-        Route::Add('/', [(new SampleWebController()), 'home']);
-        Route::Add('/ui', [(new SampleWebController()), 'ui']);
+        Route::Add('/', [(new PagesWebController()), 'home']);
+        Route::Add('/films', [(new PagesWebController()), 'films']);
+        Route::Add('/film/', [(new PagesWebController()), 'film']);
+        Route::Add('/ui', [(new PagesWebController()), 'ui']);
 
         Middleware::Add([$authMiddleware, 'isLogin'], function() use ($userController) {
             $backController = new BackWebController();

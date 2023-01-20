@@ -1,0 +1,50 @@
+footer {
+    background-color: $black;
+    padding: 50px 0;
+
+    svg {
+        fill: $white;
+    }
+
+    .large-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+
+            nav {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 40px;
+                    list-style: none;
+
+                    li a {
+                        text-decoration: none;
+                        font-family: "Playfair Display", serif;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: $white;
+                        transition: all ease .15s;
+
+                        &:hover {
+                            opacity: .2;
+                        }
+                    }
+                }
+            }
+        }
+
+        > span {
+            color: $white;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

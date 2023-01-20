@@ -1,0 +1,93 @@
+.wardrobe-wrapper {
+    position: relative;
+    max-width: clamp(250px, 50vw, 700px);
+    margin: 0 auto;
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(50px, 20vw, 400px);
+        z-index: -1;
+    }
+
+    .button-black {
+        margin: 0 auto;
+    }
+}
+
+/**
+ * Lore Block
+ */
+.books-block, .lore-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        gap: 25px
+    }
+
+    > div {
+        &:first-child {
+            width: 66%;
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        &:last-child {
+            width: 33%;
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/**
+ * Gallery Block
+ */
+
+.gallery-block {
+    .button-black {
+        margin: 0 auto;
+    }
+}
+
+.gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-item {
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

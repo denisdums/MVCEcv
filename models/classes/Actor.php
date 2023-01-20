@@ -52,9 +52,9 @@ class Actor
     }
 
     /**
-     * @return string
+     * @return ?Image
      */
-    public function getImage(): string
+    public function getImage(): ?Image
     {
         return $this->image;
     }

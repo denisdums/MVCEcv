@@ -3,6 +3,9 @@
  */
 
 .backend {
+    * {
+        font-family: "Poppins", sans-serif;
+    }
 
     &-wrapper {
         display: flex;

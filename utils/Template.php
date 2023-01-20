@@ -4,7 +4,7 @@ namespace utils;
 
 class Template
 {
-    static function render($filepath, $variables = array(), $withHeader = true): string
+    static function render($filepath, $variables = array(), $withHeader = false): string
     {
         ob_start();
         // Déclare l'ensemble des variables présent dans la variable $variales pour

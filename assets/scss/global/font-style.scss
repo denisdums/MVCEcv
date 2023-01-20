@@ -43,7 +43,7 @@ h3 {
     }
 }
 
-p {
+p, span {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 500;
@@ -62,4 +62,10 @@ p {
         font-size: 14px;
         line-height: 20px;
     }
+}
+
+.title-centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }

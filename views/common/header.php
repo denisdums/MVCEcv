@@ -9,3 +9,17 @@
 </head>
 <body>
 <?= \utils\Template::render('views/common/top-bar.php') ?>
+<header>
+    <div class="large-container">
+        <?= \utils\SVG::render('logoNarnia', 'logo') ?>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/films">Films</a></li>
+                <li><a href="/acteurs">Acteurs</a></li>
+                <li><a href="/gallerie">Gallerie</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="large-container">
