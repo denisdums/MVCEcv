@@ -2,7 +2,6 @@
 
 namespace models\classes;
 
-
 use stdClass;
 
 class Image
@@ -47,6 +46,9 @@ class Image
      */
     public function setUrl(string $url): void
     {
+        $urlDomain = parse_url($url, PHP_URL_HOST);
+        $realDomain = parse_url(DOMAIN, PHP_URL_HOST);
+        $url = str_replace($urlDomain, $realDomain, $url);
         $this->url = $url;
     }
 

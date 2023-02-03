@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini MVC Sample</title>
-    <link rel="stylesheet" href="http://mvcecv.docker/public/css/app.css">
-    <script src="http://mvcecv.docker/public/js/app.js" defer></script>
+    <link rel="stylesheet" href="<?= DOMAIN ?>/public/css/app.css">
+    <script src="<?= DOMAIN ?>/public/js/app.js" defer></script>
+    <script>
+        window.domain = '<?= DOMAIN ?>';
+    </script>
 </head>
 <body class="backend">
 <?= \utils\Template::render('views/common/top-bar.php') ?>

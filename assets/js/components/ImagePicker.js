@@ -103,7 +103,7 @@ export default function ImagePicker(element) {
         updatePreview() {
             this.previewElementsWrapper.innerHTML = '';
             this.currentItemElements.forEach(element => {
-                const src = element.querySelector('img').getAttribute('src') ?? 'http://mvcecv.docker/public/images/placeholder.png';
+                const src = element.querySelector('img').getAttribute('src') ?? `${window.domain}/public/images/placeholder.png`;
                 const previewElement = this.previewElementTemplate.content.cloneNode(true);
                 const inputElement = previewElement.querySelector('.image-picker-value');
                 const previewImageElement = previewElement.querySelector('img');
@@ -177,12 +177,13 @@ export default function ImagePicker(element) {
             this.resetForm();
         },
 
-        updateImageElements(element) {;
+        updateImageElements(element) {
+            ;
             const container = this.popinElement.querySelector('.backend-list-images');
             container.insertAdjacentHTML('beforeend', element);
         },
 
-        resetForm(){
+        resetForm() {
             const input = this.addImageFormElement.querySelector("input[type='file']").value = '';
             const output = this.addImageFormElement.querySelector('img').src = '';
         },

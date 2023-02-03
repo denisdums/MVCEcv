@@ -7,7 +7,7 @@ use models\classes\Image;
  * @var $name string
  * @var $multiple bool
  */
-$previewUrl = isset($image) ? $image->url : 'http://mvcecv.docker/public/images/placeholder.png';
+$previewUrl = isset($image) ? $image->url : DOMAIN.'/public/images/placeholder.png';
 $value = isset($image) ? $image->id : '';
 ?>
 <div class="image-picker-preview">
