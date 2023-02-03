@@ -1,7 +1,9 @@
 .film-heading {
     display: flex;
-    flex-wrap: wrap;
     gap: 80px;
+    @media screen and (max-width: 1024px) {
+        flex-wrap: wrap;
+    }
 
     > div {
         width: 66%;
