@@ -65,6 +65,4 @@ class Image
     {
         $this->alt = $alt;
     }
-
-
 }

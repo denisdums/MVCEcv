@@ -20,6 +20,7 @@ class Film
     public Gallery $gallery;
 
     public array $characters;
+    public array $comments;
 
     public function __construct(stdClass $rawFilm)
     {
@@ -33,6 +34,7 @@ class Film
         $this->setSummary($rawFilm->summary);
         $this->setCharacters($rawFilm->characters);
         $this->setGallery($rawFilm->gallery);
+        $this->setComments($rawFilm->comments ?? []);
     }
 
     /**
@@ -200,5 +202,21 @@ class Film
         $this->characters = array_map(function ($character) {
             return new Character($character);
         }, $characters);
+    }
+
+    /**
+     * @return array
+     */
+    public function getComments(): array
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param array $comments
+     */
+    public function setComments(array $comments): void
+    {
+        $this->comments = $comments;
     }
 }

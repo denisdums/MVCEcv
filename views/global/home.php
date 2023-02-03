@@ -46,13 +46,13 @@
                     que les châteaux et les palais où se déroulent les intrigues des histoires.</p>
 
                 <div class="gallery-wrapper small-container">
-                    <?php foreach ((new \models\ImageModel())->getAll() as $image): ?>
+                    <?php foreach ((new \models\GalleryModel())->getGlobalGallery(8) as $image): ?>
                         <div class="gallery-item">
                             <img src="<?= $image->getUrl() ?>" alt="<?= $image->getAlt() ?>">
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <a href="/galerie" class="button-black">Voir toute la gallerie</a>
+                <a href="/galerie/" class="button-black">Voir toute la galerie</a>
             </div>
 
             <div class="books-block">

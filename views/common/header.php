@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini MVC Sample</title>
     <link rel="stylesheet" href="http://mvcecv.docker/public/css/app.css">
+    <link rel="icon" type="image/svg" href="/public/images/wardrobe.svg" />
     <script src="http://mvcecv.docker/public/js/app.js" defer></script>
 </head>
 <body>
@@ -16,8 +17,8 @@
             <ul>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/films">Films</a></li>
-                <li><a href="/acteurs">Acteurs</a></li>
-                <li><a href="/gallerie">Gallerie</a></li>
+                <li><a href="/acteurs/">Acteurs</a></li>
+                <li><a href="/galerie/">Gallerie</a></li>
             </ul>
         </nav>
     </div>

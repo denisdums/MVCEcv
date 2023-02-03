@@ -22,6 +22,9 @@ class FilmModel extends SQL
             $galleryModel = new GalleryModel();
             $film->gallery = $galleryModel->getAllByFilmID($film->id);
 
+            $commentsModel = new CommentModel();
+            $film->comments = $commentsModel->getAllByFilmID($film->id);
+
             return new Film($film);
         }, $data) : null;
     }
@@ -35,6 +38,9 @@ class FilmModel extends SQL
 
         $galleryModel = new GalleryModel();
         $film->gallery = $galleryModel->getAllByFilmID($film->id);
+
+        $commentsModel = new CommentModel();
+        $film->comments = $commentsModel->getAllByFilmID($film->id);
 
         return $film ? new Film($film) : null;
     }
@@ -50,6 +56,9 @@ class FilmModel extends SQL
 
         $galleryModel = new GalleryModel();
         $film->gallery = $galleryModel->getAllByFilmID($film->id);
+
+        $commentsModel = new CommentModel();
+        $film->comments = $commentsModel->getAllByFilmID($film->id);
 
         return $film ? new Film($film) : null;
     }

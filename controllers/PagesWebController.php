@@ -10,7 +10,7 @@ class PagesWebController extends WebController
 {
     function home(): string
     {
-        return Template::render("views/global/home.php", array("date" => date("d-m-Y à H:i")));
+        return Template::render("views/global/home.php");
     }
 
     function ui(): string
@@ -34,5 +34,16 @@ class PagesWebController extends WebController
         $filmsModel = new FilmModel();
         $film = $filmsModel->getById($_GET["id"]);
         return Template::render("views/global/film.php", ["film" => $film]);
+    }
+
+    function galerie(): string
+    {
+        return Template::render("views/global/gallery.php", ['gallery' => (new \models\GalleryModel())->getGlobalGallery
+        ()]);
+    }
+
+    function acteurs(): string
+    {
+        return Template::render("views/global/actors.php", ['actors' => (new \models\ActorModel())->getAll()]);
     }
 }

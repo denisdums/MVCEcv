@@ -42,4 +42,22 @@ class GalleryModel extends SQL
         }, $images);
     }
 
+    public function getGlobalGallery($max = null): ?array
+    {
+        $stmt = SQL::getPdo()->prepare("SELECT imageID FROM {$this->tableName};");
+        $stmt->execute();
+        $images = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $imageModel = new ImageModel();
+
+        $images = array_map(function ($image) use ($imageModel) {
+            return $imageModel->getById($image->imageID);
+        }, $images);
+
+        $images = array_filter($images);
+
+        if ($max) {
+            $images = array_slice($images, 0, $max);
+        }
+        return $images;
+    }
 }

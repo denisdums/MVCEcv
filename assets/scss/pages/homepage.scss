@@ -15,6 +15,7 @@
         transform: translate(-50%, -50%);
         font-size: clamp(50px, 20vw, 400px);
         z-index: -1;
+        white-space: nowrap;
     }
 
     .button-black {

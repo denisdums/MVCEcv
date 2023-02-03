@@ -7,8 +7,8 @@
                         <ul>
                             <li><a href="/">Accueil</a></li>
                             <li><a href="/films">Films</a></li>
-                            <li><a href="/acteurs">Acteurs</a></li>
-                            <li><a href="/gallerie">Gallerie</a></li>
+                            <li><a href="/acteurs/">Acteurs</a></li>
+                            <li><a href="/galerie/">Gallerie</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -6,11 +6,12 @@
 
 use models\classes\Character;
 use models\classes\Film;
+use utils\Template;
 use utils\Youtube;
 
 ?>
 
-<?= \utils\Template::render('views/common/header.php') ?>
+<?= Template::render('views/common/header.php') ?>
     <div class="medium-container">
         <div class="blocks-container">
             <div class="film-heading">
@@ -54,16 +55,16 @@ use utils\Youtube;
 
             <div>
                 <h3>Bande annonce</h3>
-                <?php Youtube::render($film->getTrailer(),'film-trailer') ?>
+                <?php Youtube::render($film->getTrailer(), 'film-trailer') ?>
             </div>
 
             <div>
-                <h3>La gallerie</h3>
+                <h3>La galerie</h3>
                 <div class="gallery-wrapper">
                     <?php foreach ($film->getGallery()->getImages() as $image): ?>
-                    <div class="gallery-item">
-                        <img src="<?= $image->getUrl() ?>" alt="<?= $image->getAlt() ?>">
-                    </div>
+                        <div class="gallery-item">
+                            <img src="<?= $image->getUrl() ?>" alt="<?= $image->getAlt() ?>">
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -72,16 +73,24 @@ use utils\Youtube;
             <div>
                 <h3>Espace commentaire</h3>
                 <div class="callout">
-                    <div>
-                        <h4>Commentaires</h4>
-                        <p>Il n'y a pas encore de commentaire</p>
-                    </div>
                     <form action="" class="add-comment-form">
-                        <textarea name="comment" id="comment" cols="100" rows="10"></textarea>
+                        <div>
+                            <h4>Commentaires</h4>
+                            <div class="comments-area">
+                                <?php if (count($film->getComments()) === 0): ?>
+                                    <p>Il n'y a pas encore de commentaire</p>
+                                <?php else: foreach ($film->getComments() as $comment):?>
+                                    <?= Template::render('views/components/comment.php',['comment' => $comment]) ?>
+                                <?php endforeach; endif; ?>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="filmID" id="filmID" value="<?= $film->getId() ?>">
+                        <textarea name="message" id="comment" cols="100" rows="10"></textarea>
                         <input type="submit" class="button-black" value="Envoyer">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-<?= \utils\Template::render('views/common/footer.php') ?>
+<?= Template::render('views/common/footer.php') ?>

@@ -9,7 +9,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        gap: 16px;
 
         nav {
             ul {
@@ -18,6 +18,10 @@ header {
                 justify-content: flex-end;
                 gap: 40px;
                 list-style: none;
+
+                @media screen and (max-width: 1024px) {
+                    gap: 16px;
+                }
 
                 li a {
                     text-decoration: none;
